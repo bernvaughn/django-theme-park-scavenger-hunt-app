@@ -11,10 +11,10 @@ class Task(models.Model):
         related_name='tasks')
 
 class TaskToBoard(models.Model):
-    board = models.ForeignKey(Board, on_delete=models.CASCADE)
-    task = models.ForeignKey(Task, on_delete=models.CASCADE)
-    position_x = models.IntegerField()
-    position_y = models.IntegerField()
+    board = models.ForeignKey(Board, on_delete=models.CASCADE, null=False)
+    task = models.ForeignKey(Task, on_delete=models.CASCADE, null=False)
+    position_x = models.IntegerField(null=False)
+    position_y = models.IntegerField(null=False)
 
     class Meta:
         unique_together = (
